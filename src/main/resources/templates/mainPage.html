@@ -5,6 +5,14 @@
     <title>Main Page</title>
 </head>
 <body>
-<p>Hello theresss</p>
+<p>Hello there</p>
+<a th:each="weather : ${listWeather}">
+    <tr>
+        <td th:text="${weather.getId()}"></td>
+        <td th:text="${weather.getTempIn()}"></td>
+        <td th:text="${weather.getTempOut()}"></td>
+        <td th:text="${weather.getDate()}"></td>
+    </tr>
+</a>
 </body>
 </html>
