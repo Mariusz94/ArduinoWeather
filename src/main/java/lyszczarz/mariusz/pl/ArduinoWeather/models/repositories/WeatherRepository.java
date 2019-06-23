@@ -10,15 +10,15 @@ import java.util.List;
 @Repository
 public interface WeatherRepository extends JpaRepository<WeatherModel, Integer> {
     //288
-    //@Query(value = "SELECT * From weather ORDER BY id DESC LIMIT 200",
-     //       nativeQuery = true)
-    //List<WeatherModel> getLastDay();
+    @Query(value = "SELECT * From weather ORDER BY id DESC LIMIT 200",
+            nativeQuery = true)
+    List<WeatherModel> getLastDay();
 
-    //@Query(value = "SELECT * From weather ORDER BY id DESC LIMIT 864",
-    //        nativeQuery = true)
-    //List<WeatherModel> getLastThreeDay();
+/*    @Query(value = "SELECT * From weather ORDER BY id DESC LIMIT 864",
+            nativeQuery = true)
+    List<WeatherModel> getLastThreeDay();
 
-    //@Query(value = "SELECT * From weather ORDER BY id DESC LIMIT 2016",
-    //        nativeQuery = true)
-    //List<WeatherModel> getLastWeek();
+    @Query(value = "SELECT * From weather ORDER BY id DESC LIMIT 2016",
+            nativeQuery = true)
+    List<WeatherModel> getLastWeek();*/
 }
