@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Chart</title>
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+    <script th:inline = "javascript">
+        window.onload = function () {
+            var chart = new CanvasJS.Chart("chartContainer",
+                {
+                    backgroundColor: "#52527a",
+                    zoomEnabled: true,
+
+                    title: {
+                        text: "Stacja Pogodowa",
+                        fontColor: "white"
+                    },
+                    legend: {
+                        fontColor: "white"
+                    },
+                    axisY: {
+                        title: "Temperatura *C",
+                        interval: 5,
+                        minimum: [[${minTemp}]],
+                        maximum: [[${maxTemp}]],
+                        labelFontColor: "white",
+                        titleFontColor: "white"
+                    },
+                    axisX: {
+                        title: "Czas",
+                        labelFontColor: "white",
+                        titleFontColor: "white"
+                    },
+                    toolTip: {
+                        contentFormatter: function (e) {
+                            var content = "";
+                            for (var i = 0; i < e.entries.length; i++) {
+                                content = content + CanvasJS.formatDate(e.entries[i].dataPoint.x, "DD.MM.YYYY  HH:mm") + "	";
+                                content = content + e.entries[i].dataPoint.y + "*C";
+                            }
+                            return content;
+                        }
+                    },
+
+                    data: [
+                        {
+                            type: "spline",
+                            //https://canvasjs.com/docs/charts/chart-types/
+                            //lineColor: "#fee8fd",
+                            color: "#fee8fd",
+                            legendText: "Temperatura na zewnątrz",
+                            name: "series2",
+                            showInLegend: true,
+                            // legendMarkerColor: "green",
+                            xValueType: "dateTime",
+                            dataPoints: [[${arrayTempOut}]]
+                        },
+                        {
+                            type: "spline",
+                            color: "#f9a8a8",
+                            //lineColor: "#f9a8a8",
+                            //legendMarkerColor: "red",
+                            // legendMarkerType: "circle",
+                            legendText: "Temperatura wewnątrz",
+                            name: "series1",
+                            showInLegend: true,
+                            xValueType: "dateTime",
+                            dataPoints: [[${arrayTempIn}]]
+                        }
+                    ]
+                });
+
+            function onClick(e) {
+                alert(e.dataSeries.type + ", dataPoint { x:" + e.dataPoint.x + ", y: " + e.dataPoint.y + " }");
+            }
+
+            chart.render();
+        }
+    </script>
+    <style>
+        body {
+            background-color: #52527a;
+        }
+        table, th, td {
+            border: 1px solid black;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>
+        <p style="text-align: center" th:text="${topic}"></p>
+    </h1>
+<br>
+<div id="chartContainer" style="height: 300px; width: 100%;">
+</div>
+<div>
+    <a href="/">Powrót na strone główną</a>
+</div>
+</body>
+</html>

@@ -2,7 +2,13 @@
 <html lang="en" xmlns:th="http://thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Main Page</title>
+    <title>Strona główna</title>
+   <!-- <link rel="shortcut icon" href="ico2.ico"> -->
+    <link rel="icon" type="image/png" href="icon-16x16.png" sizes="16x16" />
+    <link rel="icon" type="image/png" href="icon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="icon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/png" href="icon-160x160.png" sizes="160x160" />
+    <link rel="icon" type="image/png" href="icon-196x196.png" sizes="196x196" />
     <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
     <script th:inline = "javascript">
         window.onload = function () {
@@ -21,7 +27,8 @@
                     axisY: {
                         title: "Temperatura *C",
                         interval: 5,
-                        minimum: 10,
+                        minimum: [[${minTemp}]],
+                        maximum: [[${maxTemp}]],
                         labelFontColor: "white",
                         titleFontColor: "white"
                     },
@@ -87,7 +94,7 @@
     </style>
 </head>
 <body>
-<div id="chartContainer" style="height: 300px; width: 100%;">
+<div id="chartContainer" style="height: 500px; width: 100%;">
 </div>
 <table>
     <tr >
@@ -99,6 +106,19 @@
         <td th:text="${weather.getTempOut()}"></td>
     </tr>
 </table>
+<div>
+    <a href="/chart/1">Wykres z jednego dnia</a>
+    <br>
+    <a href="/chart/3">Wykres z trzech dni</a>
+    <br>
+    <a href="/chart/7">Wykres z tygodnia</a>
+    <br>
+    <a href="/chart/30">Wykres z miesiąca</a>
+    <br>
+    <br>
+    <a href="https://m.meteo.pl/krakow/60">Pogoda na dziś</a>
+
+</div>
 
 
 </body>

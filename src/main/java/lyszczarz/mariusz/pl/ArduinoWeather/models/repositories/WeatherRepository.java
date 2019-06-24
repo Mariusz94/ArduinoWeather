@@ -9,8 +9,8 @@ import java.util.List;
 
 @Repository
 public interface WeatherRepository extends JpaRepository<WeatherModel, Integer> {
-    //288
-    @Query(value = "SELECT * From weather ORDER BY id DESC LIMIT 200",
+
+    @Query(value = "SELECT * From weather ORDER BY id DESC LIMIT 288",
             nativeQuery = true)
     List<WeatherModel> getLastDay();
 
