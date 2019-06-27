@@ -54,4 +54,14 @@ public class WeatherService {
         return tempMax + 1;
     }
 
+    public WeatherModel getMinTempThisDay(List<WeatherModel> weatherModels) {
+        //todo
+        return null;
+    }
+
+    public WeatherModel getMaxTempThisDay(List<WeatherModel> weatherModels) {
+        //todo
+        return null;
+    }
+
 }
