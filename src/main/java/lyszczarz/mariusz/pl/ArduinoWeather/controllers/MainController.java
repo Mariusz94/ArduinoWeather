@@ -9,6 +9,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
+import java.sql.Timestamp;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.Calendar;
 import java.util.List;
 
 @Controller
@@ -23,6 +27,22 @@ public class MainController {
     public MainController(WeatherRepository weatherRepository, WeatherService weatherService) {
         this.weatherRepository = weatherRepository;
         this.weatherService = weatherService;
+    }
+
+    @GetMapping("/prototype")
+    public String mainPrototypePage(Model model){
+        List<WeatherModel> weatherAtLastDay = weatherRepository.getLastDay();
+        model.addAttribute("weather", weatherAtLastDay.get(0));
+        model.addAttribute("arrayTempIn", weatherService.getArrayTempIn(weatherAtLastDay));
+        model.addAttribute("arrayTempOut", weatherService.getArrayTempOut(weatherAtLastDay));
+        model.addAttribute("minTemp", weatherService.getMinTemp(weatherAtLastDay));
+        model.addAttribute("maxTemp", weatherService.getMaxTemp(weatherAtLastDay));
+
+        model.addAttribute("minTempThisDayInside", weatherService.getMinTempThisDayInside(weatherAtLastDay));
+        model.addAttribute("maxTempThisDayInside", weatherService.getMaxTempThisDayInside(weatherAtLastDay));
+        model.addAttribute("minTempThisDayOutside", weatherService.getMinTempThisDayOutside(weatherAtLastDay));
+        model.addAttribute("maxTempThisDayOutside", weatherService.getMaxTempThisDayOutside(weatherAtLastDay));
+        return "prototype_dashboard";
     }
 
     @GetMapping("/")

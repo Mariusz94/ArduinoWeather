@@ -94,8 +94,15 @@
     </style>
 </head>
 <body>
-<div id="chartContainer" style="height: 500px; width: 100%;">
-</div>
+<p>Minimalna dzisiaj temperatura wewnątrz :</p>
+<p th:text="${minTempThisDayInside.getTempIn()}"></p>
+<p>Maksymalna dzisiaj temperatura wewnątrz :</p>
+<p th:text="${maxTempThisDayInside.getTempIn()}"></p>
+<p>Minimalna dzisiaj temperatura na zewnątrz :</p>
+<p th:text="${minTempThisDayOutside.getTempOut()}"></p>
+<p>Maksymalna dzisiaj temperatura na zewnątrz :</p>
+<p th:text="${maxTempThisDayOutside.getTempOut()}"></p>
+
 <table>
     <tr >
         <td ><p>Aktualna temperatura wewnątrz : </p></td>
@@ -106,6 +113,9 @@
         <td th:text="${weather.getTempOut()}"></td>
     </tr>
 </table>
+
+<div id="chartContainer" style="height: 500px; width: 100%;">
+</div>
 <div>
     <a href="/chart/1">Wykres z jednego dnia</a>
     <br>
