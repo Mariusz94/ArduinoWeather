@@ -86,4 +86,15 @@ public class MainController {
         model.addAttribute("maxTemp", weatherService.getMaxTemp(weatherAtLastDay));
         return "chart";
     }
+
+    @GetMapping("/home")
+    public String homePage(Model model){
+        List<WeatherModel> weatherAtLastDay = weatherRepository.getLastDay();
+        model.addAttribute("weather", weatherAtLastDay.get(0));
+        model.addAttribute("arrayTempIn", weatherService.getArrayTempIn(weatherAtLastDay));
+        model.addAttribute("arrayTempOut", weatherService.getArrayTempOut(weatherAtLastDay));
+        model.addAttribute("minTemp", weatherService.getMinTemp(weatherAtLastDay));
+        model.addAttribute("maxTemp", weatherService.getMaxTemp(weatherAtLastDay));
+        return "home";
+    }
 }

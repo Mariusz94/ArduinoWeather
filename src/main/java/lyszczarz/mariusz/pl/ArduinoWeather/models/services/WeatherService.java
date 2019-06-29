@@ -33,8 +33,8 @@ public class WeatherService {
         return weatherTempInArray;
     }
 
-    public double getMinTemp(List<WeatherModel> weatherModels) {
-        double tempMin = 1000;
+    public int getMinTemp(List<WeatherModel> weatherModels) {
+        int tempMin = 1000;
         for (WeatherModel weatherModel : weatherModels) {
             if(weatherModel.getTempIn() < tempMin){
                 tempMin = (int)weatherModel.getTempIn();
@@ -46,8 +46,8 @@ public class WeatherService {
         return tempMin - 1;
     }
 
-    public double getMaxTemp(List<WeatherModel> weatherModels) {
-        double tempMax = -1000;
+    public int getMaxTemp(List<WeatherModel> weatherModels) {
+        int tempMax = -1000;
         for (WeatherModel weatherModel : weatherModels) {
             if(weatherModel.getTempOut() > tempMax){
                 tempMax = (int)weatherModel.getTempIn();
