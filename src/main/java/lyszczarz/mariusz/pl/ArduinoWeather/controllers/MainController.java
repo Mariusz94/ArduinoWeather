@@ -29,23 +29,7 @@ public class MainController {
         this.weatherService = weatherService;
     }
 
-    @GetMapping("/prototype")
-    public String mainPrototypePage(Model model){
-        List<WeatherModel> weatherAtLastDay = weatherRepository.getLastDay();
-        model.addAttribute("weather", weatherAtLastDay.get(0));
-        model.addAttribute("arrayTempIn", weatherService.getArrayTempIn(weatherAtLastDay));
-        model.addAttribute("arrayTempOut", weatherService.getArrayTempOut(weatherAtLastDay));
-        model.addAttribute("minTemp", weatherService.getMinTemp(weatherAtLastDay));
-        model.addAttribute("maxTemp", weatherService.getMaxTemp(weatherAtLastDay));
-
-        model.addAttribute("minTempThisDayInside", weatherService.getMinTempThisDayInside(weatherAtLastDay));
-        model.addAttribute("maxTempThisDayInside", weatherService.getMaxTempThisDayInside(weatherAtLastDay));
-        model.addAttribute("minTempThisDayOutside", weatherService.getMinTempThisDayOutside(weatherAtLastDay));
-        model.addAttribute("maxTempThisDayOutside", weatherService.getMaxTempThisDayOutside(weatherAtLastDay));
-        return "prototype_dashboard";
-    }
-
-    @GetMapping("/")
+    @GetMapping("/dashboard")
     public String mainPage(Model model){
         List<WeatherModel> weatherAtLastDay = weatherRepository.getLastDay();
         model.addAttribute("weather", weatherAtLastDay.get(0));
@@ -87,7 +71,7 @@ public class MainController {
         return "chart";
     }
 
-    @GetMapping("/home")
+    @GetMapping("/")
     public String homePage(Model model){
         List<WeatherModel> weatherAtLastDay = weatherRepository.getLastDay();
         model.addAttribute("weather", weatherAtLastDay.get(0));
@@ -95,6 +79,11 @@ public class MainController {
         model.addAttribute("arrayTempOut", weatherService.getArrayTempOut(weatherAtLastDay));
         model.addAttribute("minTemp", weatherService.getMinTemp(weatherAtLastDay));
         model.addAttribute("maxTemp", weatherService.getMaxTemp(weatherAtLastDay));
+
+        model.addAttribute("minTempThisDayInside", weatherService.getMinTempThisDayInside(weatherAtLastDay));
+        model.addAttribute("maxTempThisDayInside", weatherService.getMaxTempThisDayInside(weatherAtLastDay));
+        model.addAttribute("minTempThisDayOutside", weatherService.getMinTempThisDayOutside(weatherAtLastDay));
+        model.addAttribute("maxTempThisDayOutside", weatherService.getMaxTempThisDayOutside(weatherAtLastDay));
         return "home";
     }
 }
