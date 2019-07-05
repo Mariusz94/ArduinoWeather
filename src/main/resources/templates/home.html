@@ -11,6 +11,9 @@
     <link href="https://fonts.googleapis.com/css?family=Russo+One&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/grid.css" />
+    <link rel="stylesheet" type="text/css" href="css/hamburger.css" />
+    <link rel="stylesheet" type="text/css" href="css/menu.css" />
     <script th:inline = "javascript">
         window.onload = function () {
             var chart = new CanvasJS.Chart("chartContainer",
@@ -84,193 +87,30 @@
             chart.render();
         }
     </script>
-    <style>
-        body {
-            background-color: #52527a;
-        }
-        table, th, td {
-            border: 1px solid black;
-            color: white;
-        }
-    </style>
-    <style>
-        .container{
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-            grid-template-rows: auto;
-            grid-gap: 1em;
-            grid-template-areas:
-            ". . box0 box0 . ."
-            ". . box1 box2 . ."
-            "box3 box3 box3 box3 box3 box4";
-            justify-items: stretch;
-            align-items: stretch;
-        }
 
-        .container > div{
-            background: rgba(38, 26, 88, 0.74);
-            padding: 0em;
-        }
-
-        p{
-            color: white;
-        }
-
-        .box0{
-            grid-area: box0;
-            text-align: center;
-        }
-
-        .box0 > p{
-            font-family: 'Russo One', sans-serif;
-            padding: 0;
-            margin: 0;
-        }
-
-        .box1{
-            grid-area: box1;
-            text-align: center;
-        }
-
-        .box1 > p{
-            font-family: 'Russo One', sans-serif;
-        }
-
-        .box1 > p:first-child{
-            padding: 0;
-            padding-top: 5px;
-            margin: 0;
-        }
-
-        .box1 > p:last-child{
-            padding: 3px;
-            margin: 3px;
-            font-size: 48px;
-        }
-
-        .box2{
-            grid-area: box2;
-            text-align: center;
-        }
-
-        .box2 > p{
-            font-family: 'Russo One', sans-serif;
-        }
-
-        .box2 > p:first-child{
-            padding: 0;
-            margin: 0;
-        }
-
-        .box2 > p:last-child{
-            padding: 3px;
-            margin: 3px;
-            font-size: 48px;
-        }
-
-        .box3{
-            grid-area: box3;
-        }
-
-        .box4{
-            grid-area: box4;
-        }
-
-        @media screen and (max-width: 600px) {
-            .container{
-                display: grid;
-                grid-template-columns: 1fr 1fr;
-                grid-template-rows: auto;
-                grid-gap: 1em;
-                grid-template-areas:
-                        "box0 box0"
-                        "box1 box2"
-                        "box3 box3"
-                        "box4 box4";
-                justify-items: stretch;
-                align-items: stretch;
-            }
-
-            .container > div{
-                background: rgba(38, 26, 88, 0.74);
-                padding: 0em;
-            }
-
-            p{
-                color: white;
-            }
-
-            .box0{
-                grid-area: box0;
-                text-align: center;
-            }
-
-            .box0 > p{
-                font-family: 'Russo One', sans-serif;
-                padding: 0;
-                margin: 0;
-                font-size: 30px;
-            }
-
-            .box1{
-                grid-area: box1;
-                text-align: center;
-            }
-
-            .box1 > p{
-                font-family: 'Russo One', sans-serif;
-            }
-
-            .box1 > p:first-child{
-                padding: 0;
-                padding-top: 5px;
-                margin: 0;
-                font-size: 20px;
-            }
-
-            .box1 > p:last-child{
-                padding: 3px;
-                margin: 3px;
-                font-size: 400%;
-            }
-
-            .box2{
-                grid-area: box2;
-                text-align: center;
-            }
-
-            .box2 > p{
-                font-family: 'Russo One', sans-serif;
-            }
-
-            .box2 > p:first-child{
-                padding: 0;
-                padding-top: 5px;
-                margin: 0;
-                font-size: 20px;
-            }
-
-            .box2 > p:last-child{
-                padding: 3px;
-                margin: 3px;
-                font-size: 400%;
-            }
-
-            .box3{
-                grid-area: box3;
-
-            }
-
-            .box4{
-                grid-area: box4;
-            }
-            .box4 > p{
-
-            }
-        }
-    </style>
 </head>
 <body>
+
+<div class="menu-wrap">
+    <input type="checkbox" class="toggler">
+    <div class="hamburger">
+        <div></div>
+    </div>
+    <div class="menu">
+        <div>
+            <div>
+                <ul>
+                    <li><a href="https://m.meteo.pl/krakow/60">Pogoda na dziś</a></li>
+                    <li><a href="/chart/3">Wykres z trzech dni</a></li>
+                    <li><a href="/chart/7">Wykres z tygodnia</a></li>
+                    <li><a href="/chart/30">Wykres z miesiąca</a></li>
+                    <li><a href="/">Strona główna</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
 <div class="container">
     <div class="box0">
         <p>Aktualna temperatura</p>

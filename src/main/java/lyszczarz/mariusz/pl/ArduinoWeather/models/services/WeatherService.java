@@ -43,7 +43,7 @@ public class WeatherService {
                 tempMin = (int)weatherModel.getTempOut();
             }
         }
-        return tempMin - 1;
+        return tempMin - 2;
     }
 
     public int getMaxTemp(List<WeatherModel> weatherModels) {
@@ -56,7 +56,7 @@ public class WeatherService {
                 tempMax = (int)weatherModel.getTempOut();
             }
         }
-        return tempMax + 1;
+        return tempMax + 2;
     }
 
     public WeatherModel getMinTempThisDayInside(List<WeatherModel> weatherModels) {

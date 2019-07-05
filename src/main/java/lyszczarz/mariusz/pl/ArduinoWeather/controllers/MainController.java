@@ -29,17 +29,6 @@ public class MainController {
         this.weatherService = weatherService;
     }
 
-    @GetMapping("/dashboard")
-    public String mainPage(Model model){
-        List<WeatherModel> weatherAtLastDay = weatherRepository.getLastDay();
-        model.addAttribute("weather", weatherAtLastDay.get(0));
-        model.addAttribute("arrayTempIn", weatherService.getArrayTempIn(weatherAtLastDay));
-        model.addAttribute("arrayTempOut", weatherService.getArrayTempOut(weatherAtLastDay));
-        model.addAttribute("minTemp", weatherService.getMinTemp(weatherAtLastDay));
-        model.addAttribute("maxTemp", weatherService.getMaxTemp(weatherAtLastDay));
-        return "dashboard";
-    }
-
     @GetMapping("/chart/{number}")
     public String lastDayPage(@PathVariable("number") int numberOfDays,
                               Model model){
@@ -86,4 +75,5 @@ public class MainController {
         model.addAttribute("maxTempThisDayOutside", weatherService.getMaxTempThisDayOutside(weatherAtLastDay));
         return "home";
     }
+
 }
