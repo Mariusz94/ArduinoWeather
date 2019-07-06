@@ -76,4 +76,10 @@ public class MainController {
         return "home";
     }
 
+    @GetMapping("/smartHome")
+    public String smartHome(Model model){
+        //todo
+        return "smartHome";
+    }
+
 }

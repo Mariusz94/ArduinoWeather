@@ -102,58 +102,14 @@
         <div>
             <div>
                 <ul>
-                    <li><a href="https://m.meteo.pl/krakow/60">Pogoda na dziś</a></li>
-                    <li><a href="/chart/3">Wykres z trzech dni</a></li>
-                    <li><a href="/chart/7">Wykres z tygodnia</a></li>
-                    <li><a href="/chart/30">Wykres z miesiąca</a></li>
-                    <li><a href="/smartHome">SmartHome</a></li>
-                    <li><a href="/">Strona główna</a></li>
+                    <li><a href="https://m.meteo.pl/krakow/60">Prognoza na dziś</a></li>
+                    <li><a href="/">Stacja pogodowa</a></li>
                 </ul>
             </div>
         </div>
     </div>
 </div>
 
-<div class="container">
-    <div class="box0">
-        <p>Aktualna temperatura</p>
-    </div>
-    <div class="box1">
-        <p>Na zewnatrz &#186C</p>
-        <p th:text="${weather.getTempOut()}"></p>
-    </div>
-    <div class="box2">
-        <p>W środku &#186C</p>
-        <p th:text="${weather.getTempIn()}"></p>
-    </div>
-    <div class="box3">
-        <div id="chartContainer" style="height: 500px; width: 100%;">
-        </div>
-    </div>
-    <div class="box4">
-        <table>
-            <tr>
-                <th colspan="3">
-                    <p>Temperatura</p>
-                </th>
-            </tr>
-            <tr>
-                <td></td>
-                <td>Min</td>
-                <td>Max</td>
-            </tr>
-            <tr>
-                <td>wewnątrz</td>
-                <td><p th:text="${minTempThisDayInside.getTempIn()}"></p></td>
-                <td><p th:text="${maxTempThisDayInside.getTempIn()}"></p></td>
-            </tr>
-            <tr>
-                <td>na zewnątrz</td>
-                <td><p th:text="${minTempThisDayOutside.getTempOut()}"></p></td>
-                <td><p th:text="${maxTempThisDayOutside.getTempOut()}"></p></td>
-            </tr>
-        </table>
-    </div>
-</div>
+
 </body>
 </html>
