@@ -19,7 +19,7 @@
                         fontColor: "white"
                     },
                     axisY: {
-                        title: "Temperatura *C",
+                        title: "Temperatura °C",
                         interval: 5,
                         minimum: [[${minTemp}]],
                         maximum: [[${maxTemp}]],
@@ -29,7 +29,9 @@
                     axisX: {
                         title: "Czas",
                         labelFontColor: "white",
-                        titleFontColor: "white"
+                        titleFontColor: "white",
+                        valueFormatString: "DDDD DD MMMM H:mm" ,
+                        labelAngle: -50
                     },
                     toolTip: {
                         contentFormatter: function (e) {
@@ -93,7 +95,7 @@
     <p style="text-align: center" th:text="${topic}"></p>
 </h1>
 <br>
-<div id="chartContainer" style="height: 300px; width: 100%;">
+<div id="chartContainer" style="height: 100%; width: 100%;">
 </div>
 <div>
     <a href="/">Powrót na strone główną</a>

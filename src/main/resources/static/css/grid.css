@@ -89,6 +89,12 @@ p{
     grid-area: box4;
 }
 
+.box4 > table, th, td{
+    border: 1px solid white ;
+
+
+}
+
 @media screen and (max-width: 600px) {
     .container{
         display: grid;
@@ -135,10 +141,9 @@ p{
     }
 
     .box1 > p:first-child{
-        padding: 0;
-        padding-top: 5px;
+        padding: 5px 0 0;
         margin: 0;
-        font-size: 20px;
+        font-size: 19px;
     }
 
     .box1 > p:last-child{
@@ -177,7 +182,10 @@ p{
     .box4{
         grid-area: box4;
     }
-    .box4 > p{
 
-    }
+    .box4 > table, th, td{
+         border: 1px solid white ;
+
+
+     }
 }
