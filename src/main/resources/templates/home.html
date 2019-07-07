@@ -144,13 +144,21 @@
             </tr>
             <tr>
                 <td>wewnątrz</td>
-                <td><p th:text="${minTempThisDayInside.getTempIn()}"></p></td>
-                <td><p th:text="${maxTempThisDayInside.getTempIn()}"></p></td>
+                <td th:title="${minTempThisDayInside.getDate()}">
+                    <p th:text="${minTempThisDayInside.getTempIn()}"></p>
+                </td>
+                <td th:title="${maxTempThisDayInside.getDate()}">
+                    <p th:text="${maxTempThisDayInside.getTempIn()}"></p>
+                </td>
             </tr>
             <tr>
                 <td>na zewnątrz</td>
-                <td><p th:text="${minTempThisDayOutside.getTempOut()}"></p></td>
-                <td><p th:text="${maxTempThisDayOutside.getTempOut()}"></p></td>
+                <td th:title="${minTempThisDayOutside.getDate()}">
+                    <p th:text="${minTempThisDayOutside.getTempOut()}"></p>
+                </td>
+                <td th:title="${maxTempThisDayOutside.getDate()}">
+                    <p th:text="${maxTempThisDayOutside.getTempOut()}"></p>
+                </td>
             </tr>
         </table>
     </div>
